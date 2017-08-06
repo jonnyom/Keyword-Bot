@@ -25,15 +25,23 @@ end
 
 post '/' do
 	request.body.rewind
-	payload_body = request.body.read
-	verify_signature(payload_body)
-	body = JSON.parse(payload_body)
-	conversation_parts = body['data']['conversation_parts']['conversation_parts']
-	if check_incoming_messages(conversation_parts)
-		@slack.post "Conversation of interest: #{body['links']['conversation_web']}"
-	else
-		break
-	end
+  payload_body = request.body.read
+  puts "==============================================================="
+  puts payload_body
+  puts "==============================================================="
+  verify_signature(payload_body)
+  push = JSON.parse(payload_body)
+  puts "Topic Recieved: #{push['topic']}"
+	# request.body.rewind
+	# payload_body = request.body.read
+	# verify_signature(payload_body)
+	# body = JSON.parse(payload_body)
+	# conversation_parts = body['data']['conversation_parts']['conversation_parts']
+	# if check_incoming_messages(conversation_parts)
+	# 	@slack.post "Conversation of interest: #{body['links']['conversation_web']}"
+	# else
+	# 	break
+	# end
 end
 
 
