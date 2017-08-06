@@ -3,11 +3,11 @@ require 'slack/incoming/webhooks'
 require 'sinatra'
 require 'json'
 
-url = "https://hooks.slack.com/services/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"
+url = ENV['CHATBOT_SLACK_URL']
 
 @slack = Slack::Incoming::Webhooks.new url
 
-my_token = 'dG9rOjMzYmFiNTVlX2I5NzJfNDRkMF84ZWUzX2M2ZTNhNzA2ZGUzZjoxOjA='
+my_token = ENV['MY_INTERCOM_TOKEN']
 @intercom = Intercom::Client.new(token: my_token)
 
 @keywords = ["android", "ios"]
