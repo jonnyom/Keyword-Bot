@@ -59,7 +59,7 @@ def get_conversation_info(convo_id)
 end
 
 def conversation_link(conversation_id, message)
-	message = "Conversation of interest: https://intercomrades.intercom.com/a/apps/#{APP_ID}/respond/inbox/conversation/#{conversation_id} \n Message: #{message}"
+	message = "*Conversation of interest:* https://intercomrades.intercom.com/a/apps/#{APP_ID}/respond/inbox/conversation/#{conversation_id} \n *Message:* #{message}"
 	message
 end
 
